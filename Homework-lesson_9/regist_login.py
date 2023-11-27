@@ -13,15 +13,13 @@ def get_password():
 
 
 def password_confirmation():
-    first_password = get_password()
-    second_password = input('Confirm your password:\n')
     while True:
+        first_password = get_password()
+        second_password = input('Confirm your password:\n')
         if first_password == second_password:
             return second_password
         else:
             print("It seems you've entered incorrect data. Try again!")
-            first_password = get_password()
-            second_password = input('Confirm your password:\n')
 
 
 def check_user_data():
