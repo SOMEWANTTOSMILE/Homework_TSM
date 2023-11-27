@@ -20,8 +20,8 @@ def password_confirmation():
             return second_password
         else:
             print("It seems you've entered incorrect data. Try again!")
-            password_1 = get_password()
-            password_2 = input('Confirm your password:\n')
+            first_password = get_password()
+            second_password = input('Confirm your password:\n')
 
 
 def check_user_data():
@@ -36,10 +36,11 @@ def check_user_data():
 
 
 def login():
-    email, password = get_gmail(), get_password()
-    for users in user_data:
-        if users['email'] == email and users['password'] == password:
-            return f'Hello {email}'
+    while True:
+        email, password = get_gmail(), get_password()
+        for users in user_data:
+            if users['email'] == email and users['password'] == password:
+                return f'Hello {email}'
         else:
             print("The password or email was entered incorrectly")
 
