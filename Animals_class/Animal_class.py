@@ -6,12 +6,14 @@ class Moving:
 
 class Animal(Moving):
     def voice(self):
-        super().move()
+        raise NotImplementedError(
+            'Define voice in %s.' % self.__class__.__name__)
 
 
 class Transport(Moving):
     def launch(self):
-        super().move()
+        raise NotImplementedError(
+            'Define voice in %s.' % self.__class__.__name__)
 
 
 class Duck(Animal):
@@ -31,7 +33,7 @@ class Tiger(Animal):
 
 
 class Car(Transport):
-    def __init__(self, status="non launch"):
+    def __init__(self, status=None):
         self.status = status
 
     def move(self):
@@ -41,9 +43,9 @@ class Car(Transport):
             print("Car is rides")
 
     def launch(self):
-        if self.status == 'non launch':
+        if self.status is None:
             self.status = 'Launch'
             print("launch")
-        elif self.status == 'Launch':
+        elif self.status is not None:
             self.status = 'non launch'
             print("non launch")
