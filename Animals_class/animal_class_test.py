@@ -1,6 +1,5 @@
 from Animal_class import Car, Duck, Tiger
 
-
 print("|is class car|")
 car = Car()
 car.launch()
