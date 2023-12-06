@@ -43,8 +43,8 @@ class DataStorageWrite(DataStorage):
     def append(self, string_):
         if self.status == 'connected':
             self.content.append(string_)
-            with open(self.file_path, 'w') as j_file:
-                json.dump(self.content, j_file)
+            with open(self.file_path, 'w') as file:
+                json.dump(self.content, file)
         else:
             print('You need to set a "connect" status first')
 
