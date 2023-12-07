@@ -24,7 +24,11 @@ class DataStorage:
             self.status = 'connected'
             return self.file
         except FileNotFoundError:
-            return self._create_storage()
+            self._create_storage()
+            self.file = open(self.file_path, 'r')
+            self.content = json.load(self.file)
+            self.status = 'connected'
+            return self.file
 
     def disconnect(self):
         if self.status == 'connected':
