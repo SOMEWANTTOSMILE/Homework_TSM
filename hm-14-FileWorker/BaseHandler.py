@@ -26,10 +26,11 @@ class JsonHandler(BaseHandler):
         self.file = open(self.file_path, "r")
         self.content = json.load(self.file)
         if list is type(self.content):
-            print(f"all ok, content - {self.content}")
+            print(f"all ok, json file have contains")
             return self.content
         else:
             print(f"Json file ain`t have list")
+            raise TypeError
 
     def append(self, user_string):
         self.file = open(self.file_path, "r")
@@ -59,5 +60,4 @@ class TxtHandler(BaseHandler):
         return self.file.write(f'{user_string}\n')
 
     def close(self):
-        self.file = open(self.file_path, 'r')
         self.file.close()

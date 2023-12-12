@@ -5,30 +5,27 @@ class FileWorker:
     def __init__(self, file_path):
         self.file_path = file_path
         self.file_type = {'json': JsonHandler, 'txt': TxtHandler}
+        self.handler = self.get_file_type()
 
     def get_file_type(self):
-        if self.file_path.endswith('json'):
-            return self.file_type.get('json')
-        elif self.file_path.endswith('txt'):
-            return self.file_type.get('txt')
+        file_type = self.file_path.split('.')[-1]
+        if file_type in self.file_type.keys():
+            return self.file_type[file_type](self.file_path)
         else:
-            return 'error'
+            raise ValueError('Unsupported filetype!')
 
     def read(self):
-        reader = self.get_file_type()
-        return reader(self.file_path).read()
+        return self.handler.read()
 
-    def append(self, string_):
-        appender = self.get_file_type()
-        return appender(self.file_path).append(string_)
+    def append(self, user_string):
+        return self.handler.append(user_string)
 
     def close(self):
-        closer = self.get_file_type()
-        return closer(self.file_path).close()
+        return self.handler.close()
 
 
 def app():
-    fw = FileWorker('test.json')
+    fw = FileWorker('test.txt')
     content = fw.read()
     fw.append('obj1')
     fw.append('obj2')
