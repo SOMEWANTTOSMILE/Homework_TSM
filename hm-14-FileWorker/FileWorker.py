@@ -22,15 +22,3 @@ class FileWorker:
 
     def close(self):
         return self.handler.close()
-
-
-def app():
-    fw = FileWorker('test.txt')
-    content = fw.read()
-    fw.append('obj1')
-    fw.append('obj2')
-    fw.close()
-    return content
-
-
-print(app())
