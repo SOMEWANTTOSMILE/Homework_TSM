@@ -6,7 +6,6 @@ class BaseHandler:
         self.file_path = file_path
         self.content = None
         self.file = None
-        self.user_string = None
 
     def read(self):
         raise NotImplemented
