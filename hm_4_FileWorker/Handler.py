@@ -9,13 +9,13 @@ class BaseHandler:
         self.user_string = None
 
     def read(self):
-        return NotImplemented
+        raise NotImplemented
 
     def append(self, user_string):
-        return NotImplemented
+        raise NotImplemented
 
     def close(self):
-        return NotImplemented
+        raise NotImplemented
 
 
 class JsonHandler(BaseHandler):
