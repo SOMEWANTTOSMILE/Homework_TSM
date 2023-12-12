@@ -6,6 +6,7 @@ class BaseHandler:
         self.file_path = file_path
         self.content = None
         self.file = None
+        self.user_string = None
 
     def read(self):
         return NotImplemented
@@ -18,11 +19,6 @@ class BaseHandler:
 
 
 class JsonHandler(BaseHandler):
-    def __init__(self, file_path):
-        super().__init__(file_path)
-        self.user_string = None
-
-    @property
     def read(self):
         self.file = open(self.file_path, "r")
         self.content = json.load(self.file)
@@ -45,10 +41,6 @@ class JsonHandler(BaseHandler):
 
 
 class TxtHandler(BaseHandler):
-    def __init__(self, file_path):
-        super().__init__(file_path)
-        self.user_string = None
-
     def read(self):
         self.file = open(self.file_path, "r")
         self.content = self.file.read()

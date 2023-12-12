@@ -15,7 +15,7 @@ class FileWorker:
             raise ValueError('Unsupported filetype!')
 
     def read(self):
-        return self.handler.read
+        return self.handler.read()
 
     def close(self):
         return self.handler.close()
