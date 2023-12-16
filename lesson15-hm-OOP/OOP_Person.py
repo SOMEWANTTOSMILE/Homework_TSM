@@ -1,28 +1,26 @@
-from random import randint
+from Bank_account import BankAccount
 
 
 class Person:
-    def __init__(self, person_name):
+    created_passport = set()
+
+    def __init__(self, person_name, passport_number):
+        if passport_number in self.created_passport:
+            raise ValueError("This password already exist")
+
         self.name = person_name
-        self.bank_account = 0
-        self.person_property = False
+        self.passport = passport_number
+        self.__bank_account = BankAccount(self.passport)
+        self.company = None
 
-
-class Work(Person):
     def work(self):
-        salary = randint(5, 8)
-        self.bank_account = self.bank_account + salary
+        if not self.company:
+            print("go find you job!")
+            return
 
+        salary = self.company.make_money()
+        self.__bank_account.make_money(salary)
 
-class Car(Person):
-    def __init__(self, person_name):
-        super().__init__(person_name)
-        self.car_price = 40
-
-
-class Property(Person):
-    def __init__(self, person_name):
-        super().__init__(person_name)
-        self.property_price = 100
-
+    def __str__(self):
+        return f" Name -{self.name}, Password - {self.passport}, amount - {self.__bank_account}"
 
