@@ -11,3 +11,13 @@ class BankAccount:
 
     def add_money(self, salary):
         self.__balance += salary
+
+    def pay(self, price):
+        if self.__balance > price:
+            self.__balance -= price
+            return True
+        else:
+            return False
+
+    def sell(self, price):
+        self.__balance += price
