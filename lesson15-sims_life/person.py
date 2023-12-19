@@ -19,22 +19,22 @@ class Person:
 
     def buy_car(self, car):
         if self.bank_account.pay(car.car_price):
-            self.car = True
+            self.car = car
             return self.car
         return False
 
     def sell_car(self, car):
-        if self.car is True:
+        if self.car is car:
             self.bank_account.sell(car.car_price)
             self.car = None
 
     def buy_house(self, house):
-        if self.car is True and self.bank_account.pay(house.house_price):
-            self.house = True
+        if self.car is not None and self.bank_account.pay(house.house_price):
+            self.house = house
             return self.house
         return False
 
     def sell_house(self, house):
-        if self.house is True:
+        if self.house is house:
             self.bank_account.sell(house.house_price)
             self.house = None

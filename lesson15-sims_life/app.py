@@ -5,7 +5,7 @@ from person import Person
 
 def app():
     john = Person("John")
-    while john.bank_account.balance < 140:
+    while john.bank_account.balance < 150:
         john.work()
     print(john)
     car = Car()
