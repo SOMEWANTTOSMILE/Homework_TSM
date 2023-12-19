@@ -24,9 +24,8 @@ class Person:
         return False
 
     def sell_car(self, car):
-        if self.car is car:
-            self.bank_account.sell(car.car_price)
-            self.car = None
+        self.bank_account.sell(car.car_price)
+        self.car = None
 
     def buy_house(self, house):
         if self.car is not None and self.bank_account.pay(house.house_price):
@@ -35,6 +34,5 @@ class Person:
         return False
 
     def sell_house(self, house):
-        if self.house is house:
-            self.bank_account.sell(house.house_price)
-            self.house = None
+        self.bank_account.sell(house.house_price)
+        self.house = None

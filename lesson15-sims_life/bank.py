@@ -15,9 +15,6 @@ class BankAccount:
     def pay(self, price):
         if self.__balance > price:
             self.__balance -= price
-            return True
-        else:
-            return False
 
     def sell(self, price):
         self.__balance += price
