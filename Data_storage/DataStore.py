@@ -48,7 +48,7 @@ class DataStorageWrite(DataStorage):
 
     def append(self, string_):
         if self.status == 'connected':
-            self.content.append(string_)
+            self.content.append()
             with open(self.file_path, 'w') as file:
                 json.dump(self.content, file)
         else:

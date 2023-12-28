@@ -49,7 +49,7 @@ def registration():
         password = password_confirmation()
         if name and password:
             new_user = {'email': name, 'password': password}
-            user_data.append(new_user)
+            user_data.append()
             with open('user_data.json', 'w') as file:
                 json.dump(user_data, file)
             return 'Registration is over.'
