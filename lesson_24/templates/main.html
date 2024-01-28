@@ -1,0 +1,30 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'authentication/css/main.css' %}">
+    <title>Main</title>
+</head>
+<body> 
+    <h1 class="center_count">user count: {{ count }}</h1>
+    <div class="list_user_mail">
+        <ul id="ul_in_list"> <h2>user list:</h2>
+            {% for users in user %}
+                <li id="li_in_list">{{ users }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="button_main">
+        <form action="http://localhost:8000/sign_up/">
+            <button class="red_button">REGISTRATION</button>
+        </form>
+        <form action="http://localhost:8000/sign_in/">
+            <button>SIGN IN</button>
+        </form> 
+    </div>
+</body>
+</html>
