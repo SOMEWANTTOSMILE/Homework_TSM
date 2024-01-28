@@ -1,0 +1,32 @@
+.center_count {
+    text-align: center;
+}
+.list_user_mail {
+    text-align: center;
+
+
+}
+#li_in_list {
+    display: block;
+    width: 400px;
+    border: 1px solid black;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.button_main{
+    text-align: center;
+
+}
+
+.form-group{
+    text-align: center;
+}
+
+.sign_in{
+    text-align: center;
+    font-size: larger;
+}
+
