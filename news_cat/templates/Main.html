@@ -1,0 +1,34 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'news/css/news_main.css' %}" type="text/css">
+    <title>Main</title>
+</head>
+<body>
+    <form action="" method="get">
+        <select name="name_sorting" id="">
+            <option value="rating">Rating</option>
+        </select>
+        <select name ="priority_sorting">
+            <option value="+"> от низкого к высокому </option>
+            <option value="-"> от высокого к низкому </option>
+        </select>
+        <button>Sort</button>
+    </form>
+<div class="form">
+    {% for new in news %}
+        <img src="{{ new.image }}" alt="img" style="max-width: 200px">
+    	<h1>{{ new.title }}</h1><br>
+        {{ new.content }}<br>
+        {{ new.date }}<br>
+        {{ new.likes}}
+        <hr>
+    {% endfor %}
+</div>
+</body>
+</html>
